@@ -4,7 +4,6 @@ import streamlit as st
 # for data science
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 
 #for linear regression
 from sklearn.linear_model import LinearRegression
@@ -118,33 +117,6 @@ else:
 with st.container():
     st.title("This is the dataset")
     st.table(df.head(10))
-
-with st.container():
-    st.write('---')
-    left_visualization,right_visualization = st.columns(2)
-    with left_visualization:
-        st.header('Visualization 1')
-        #Visualization
-        testy_check = val_y.values.tolist()
-        fig = plt.figure(figsize=(12, 6))
-        #plt.figure(figsize = (12,6))
-        plt.plot(testy_check , 'b' , label = 'Actual')
-        plt.plot(val_predictions , 'orange' , label = 'Forecast')
-        plt.grid()
-        plt.legend()
-        st.pyplot(fig)
-    with right_visualization:
-        st.header('Visualization 2')
-        #Visualization
-        testy_check = val_y.values.tolist()
-        fig2 = plt.figure(figsize=(12, 6))
-        #plt.figure(figsize = (12,6))
-        plt.plot(testy_check , 'b' , label = 'Actual')
-        plt.plot(val_predictions , 'orange' , label = 'Forecast')
-        plt.grid()
-        plt.legend()
-        st.pyplot(fig2)
-
 
 def predict(x1, x2, x3):
     # Load the saved model
